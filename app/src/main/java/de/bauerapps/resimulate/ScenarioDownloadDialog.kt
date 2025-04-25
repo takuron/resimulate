@@ -6,7 +6,7 @@ import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.*
+//import com.google.firebase.database.*
 import com.google.gson.Gson
 import de.bauerapps.resimulate.adapters.ScenarioDownloadAdapter
 import de.bauerapps.resimulate.databinding.ScenarioDownloadOverviewDialogBinding
@@ -82,88 +82,88 @@ class ScenarioDownloadDialog(val context: AppCompatActivity) :
 
   fun addNewScenario(id: String) {
 
-    val ref = FirebaseDatabase.getInstance().reference
-      .child("data")
-      .child("scenarios")
-      //.orderByChild("date")
-      .orderByKey()
-      .startAt(id)
-      .limitToFirst(20)
+//    val ref = FirebaseDatabase.getInstance().reference
+//      .child("data")
+//      .child("scenarios")
+//      //.orderByChild("date")
+//      .orderByKey()
+//      .startAt(id)
+//      .limitToFirst(20)
+//
+//    ref.addListenerForSingleValueEvent(object : ValueEventListener {
+//      override fun onCancelled(p0: DatabaseError) {}
+//
+//      override fun onDataChange(dataSnapshot: DataSnapshot) {
+//        if (dataSnapshot.hasChildren()) {
+//          val iter = dataSnapshot.children.iterator()
+//          while (iter.hasNext()) {
+//            val snap = iter.next()
+//            val scenario = snap.getValue(DownloadPathology::class.java)
+//            if (!downloadPathologies.contains(snap.key) && scenario != null) {
+//              downloadPathologies[scenario.id] = scenario
+//              adapter.pathologies.add(scenario)
+//              scenarioCount += 1
+//              adapter.notifyItemInserted(adapter.itemCount - 1)
+//            }
+//
+//          }
+//        }
+//      }
 
-    ref.addListenerForSingleValueEvent(object : ValueEventListener {
-      override fun onCancelled(p0: DatabaseError) {}
-
-      override fun onDataChange(dataSnapshot: DataSnapshot) {
-        if (dataSnapshot.hasChildren()) {
-          val iter = dataSnapshot.children.iterator()
-          while (iter.hasNext()) {
-            val snap = iter.next()
-            val scenario = snap.getValue(DownloadPathology::class.java)
-            if (!downloadPathologies.contains(snap.key) && scenario != null) {
-              downloadPathologies[scenario.id] = scenario
-              adapter.pathologies.add(scenario)
-              scenarioCount += 1
-              adapter.notifyItemInserted(adapter.itemCount - 1)
-            }
-
-          }
-        }
-      }
-
-    })
+//    })
   }
 
   private fun addScenarios(mPosts: Int) {
-    val ref = FirebaseDatabase.getInstance().reference
-      .child("data")
-      .child("scenarios")
-      .orderByKey()
-      //.orderByChild("date")
-      .limitToFirst(mPosts)
-
-    dialogView.twNoDownloadableScenarios.visibility = View.INVISIBLE
-    dialogView.rvScenarioDownload.visibility = View.INVISIBLE
-    dialogView.pwScenariosLoading.visibility = View.VISIBLE
-
-    ref.addListenerForSingleValueEvent(object : ValueEventListener {
-      override fun onCancelled(p0: DatabaseError) {}
-
-      override fun onDataChange(dataSnapshot: DataSnapshot) {
-        if (dataSnapshot.hasChildren()) {
-          val iter = dataSnapshot.children.iterator()
-          while (iter.hasNext()) {
-            val snap = iter.next()
-            val scenario = snap.getValue(DownloadPathology::class.java)
-            if (scenario != null) {
-              if (!ESApplication.saveMap.containsKey(scenario.name)) {
-                downloadPathologies[scenario.id] = scenario
-                adapter.pathologies.add(scenario)
-                adapter.notifyItemInserted(adapter.itemCount - 1)
-
-                dialogView.rvScenarioDownload.visibility = View.VISIBLE
-                dialogView.pwScenariosLoading.visibility = View.INVISIBLE
-              }
-            }
-          }
-        }
-
-        if (downloadPathologies.values.isEmpty()) {
-          // Already downloaded all available Scenarios
-          dialogView.twNoDownloadableScenarios.visibility = View.VISIBLE
-          dialogView.pwScenariosLoading.visibility = View.INVISIBLE
-        } else {
-          dialogView.twNoDownloadableScenarios.visibility = View.INVISIBLE
-        }
-      }
-
-    })
+//    val ref = FirebaseDatabase.getInstance().reference
+//      .child("data")
+//      .child("scenarios")
+//      .orderByKey()
+//      //.orderByChild("date")
+//      .limitToFirst(mPosts)
+//
+//    dialogView.twNoDownloadableScenarios.visibility = View.INVISIBLE
+//    dialogView.rvScenarioDownload.visibility = View.INVISIBLE
+//    dialogView.pwScenariosLoading.visibility = View.VISIBLE
+//
+//    ref.addListenerForSingleValueEvent(object : ValueEventListener {
+//      override fun onCancelled(p0: DatabaseError) {}
+//
+//      override fun onDataChange(dataSnapshot: DataSnapshot) {
+//        if (dataSnapshot.hasChildren()) {
+//          val iter = dataSnapshot.children.iterator()
+//          while (iter.hasNext()) {
+//            val snap = iter.next()
+//            val scenario = snap.getValue(DownloadPathology::class.java)
+//            if (scenario != null) {
+//              if (!ESApplication.saveMap.containsKey(scenario.name)) {
+//                downloadPathologies[scenario.id] = scenario
+//                adapter.pathologies.add(scenario)
+//                adapter.notifyItemInserted(adapter.itemCount - 1)
+//
+//                dialogView.rvScenarioDownload.visibility = View.VISIBLE
+//                dialogView.pwScenariosLoading.visibility = View.INVISIBLE
+//              }
+//            }
+//          }
+//        }
+//
+//        if (downloadPathologies.values.isEmpty()) {
+//          // Already downloaded all available Scenarios
+//          dialogView.twNoDownloadableScenarios.visibility = View.VISIBLE
+//          dialogView.pwScenariosLoading.visibility = View.INVISIBLE
+//        } else {
+//          dialogView.twNoDownloadableScenarios.visibility = View.INVISIBLE
+//        }
+//      }
+//
+//    })
   }
 
   private fun onUpdateSimConfig(newValue: SimConfig) {
 
-    ecgCalculation.pendingSimConfig = newValue
-    capCalculation.simConfig = newValue
-    oxyCalculation.simConfig = newValue
+//    ecgCalculation.pendingSimConfig = newValue
+//    capCalculation.simConfig = newValue
+//    oxyCalculation.simConfig = newValue
   }
 
   private fun initGraphs() {

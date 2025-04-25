@@ -2,7 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'org.jetbrains.dokka'
-    id 'com.google.gms.google-services'
+    //id 'com.google.gms.google-services'
     id "kotlin-parcelize"
 }
 
@@ -47,7 +47,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.11.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.guolindev.permissionx:permissionx:1.7.1'
-    implementation 'com.google.firebase:firebase-database:20.3.0'
+    //implementation 'com.google.firebase:firebase-database:20.3.0'
     testImplementation 'junit:junit:4.13.2'
     implementation 'com.github.f0ris.sweetalert:library:1.6.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
